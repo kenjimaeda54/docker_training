@@ -1,6 +1,8 @@
 FROM node:latest
 
-WORKDIR /app
+# workdir seria qual diretorio desjaria trabalhar(project,app,src)
+# vai servir de referencia para comando cp,mv,rm,etc
+WORKDIR /src
 
 COPY package*.json  .
 
