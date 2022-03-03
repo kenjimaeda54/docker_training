@@ -1,13 +1,15 @@
-FROM  python:3.0
+FROM  python:3
+
+RUN apt-get update -y && apt-get install  -y python3-pip python3-dev
 
 
-RUN   apt-get update && apt-get istall -y python-pyp python-dev
+WORKDIR  /app
 
 
-WORKDIR  /app.py
+RUN pip3 install Flask && pip3 install requests
 
-RUN  pip install flask && pip install request
+COPY  . .
 
-COPY . .
+CMD [ "python3","./app.py" ]
 
-CMD [ "python3", "./app.py" ]
+
